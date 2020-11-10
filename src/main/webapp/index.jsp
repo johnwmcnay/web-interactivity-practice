@@ -2,9 +2,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>title</title>
   </head>
   <body>
-  $END$ test
+  <h3>index.jsp</h3>
   </body>
 </html>
