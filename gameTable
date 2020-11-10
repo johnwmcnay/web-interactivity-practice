@@ -1,0 +1,10 @@
+USE gametest;
+
+DROP TABLE IF EXISTS session;
+
+CREATE TABLE session
+(
+    id   INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    name VARCHAR(30),
+    PRIMARY KEY (id)
+)
