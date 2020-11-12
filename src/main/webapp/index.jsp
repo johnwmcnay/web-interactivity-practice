@@ -6,14 +6,15 @@
 </head>
 <body>
 
-<div class="container justify-content-center align-content-center">
+<div class="container">
     <h3>${welcomeMsg}</h3>
-    <form method="post" target="/home">
+    <form method="post">
         <div class="form-group">
             <label for="username">Enter your name:</label>
             <input type="text" name="username" id="username">
             <input type="submit">
         </div>
     </form>
+</div>
 </body>
 </html>

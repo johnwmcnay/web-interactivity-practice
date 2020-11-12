@@ -1,3 +1,7 @@
+package com.codeup.test.controllers;
+
+import com.codeup.test.models.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -6,22 +10,23 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "TestServlet", urlPatterns = "/test")
+@WebServlet(name = "controllers.TestServlet", urlPatterns = "/test")
 public class TestServlet extends HttpServlet {
-
-    private static short count = 0;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         HttpSession session = request.getSession();
-        Object id = session.getAttribute("id");
+        User user = (User) session.getAttribute("user");
 
-        if (id == null) {
-            session.setAttribute("message", "Welcome!");
-            session.setAttribute("id", ++count);
+        if (user == null) {
+            response.sendRedirect("/");
+        } else {
+            session.setAttribute("username", user.getUsername());
+            session.setAttribute("id", user.getId());
+            request.getRequestDispatcher("/WEB-INF/test.jsp").forward(request, response);
         }
 
-        request.getRequestDispatcher("/WEB-INF/test.jsp").forward(request, response);
+
     }
 
 }
